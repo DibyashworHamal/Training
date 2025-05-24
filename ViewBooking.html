@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bookings | EventPro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .booking-card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .booking-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
+        .event-image {
+            height: 180px;
+            object-fit: cover;
+        }
+        .btn-action {
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+        }
+        .search-box {
+            position: relative;
+        }
+        .search-box .form-control {
+            padding-left: 40px;
+            border-radius: 20px;
+        }
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            color: #6c757d;
+        }
+        .filter-btn {
+            border-radius: 20px;
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-4">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">My Bookings</h2>
+            <div>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i>New Booking
+                </button>
+            </div>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="form-control" placeholder="Search bookings...">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex">
+                    <select class="form-select filter-btn me-2">
+                        <option selected>All Events</option>
+                        <option>Upcoming</option>
+                        <option>Past</option>
+                        <option>Cancelled</option>
+                    </select>
+                    <select class="form-select filter-btn">
+                        <option selected>Sort by Date</option>
+                        <option>Sort by Event</option>
+                        <option>Sort by Status</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Cards -->
+        <div class="row">
+            <!-- Booking 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card booking-card h-100">
+                    <span class="badge bg-success status-badge">Confirmed</span>
+                    <img src="https://source.unsplash.com/random/600x400?concert" class="card-img-top event-image" alt="Concert">
+                    <div class="card-body">
+                        <h5 class="card-title">Summer Music Festival 2023</h5>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-calendar-alt me-2"></i>July 15, 2023 • 7:00 PM
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>Central Park, New York
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-primary">VIP Ticket</span>
+                            </div>
+                            <h5 class="mb-0 text-primary">$129.99</h5>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-action">
+                                <i class="fas fa-ticket-alt me-2"></i>View Ticket
+                            </button>
+                            <button class="btn btn-outline-secondary btn-action">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card booking-card h-100">
+                    <span class="badge bg-warning text-dark status-badge">Pending</span>
+                    <img src="https://source.unsplash.com/random/600x400?conference" class="card-img-top event-image" alt="Conference">
+                    <div class="card-body">
+                        <h5 class="card-title">Tech Conference 2023</h5>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-calendar-alt me-2"></i>August 5, 2023 • 9:00 AM
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>Convention Center, San Francisco
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-info text-dark">Standard</span>
+                            </div>
+                            <h5 class="mb-0 text-primary">$79.99</h5>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-action" disabled>
+                                <i class="fas fa-ticket-alt me-2"></i>Ticket Pending
+                            </button>
+                            <button class="btn btn-outline-secondary btn-action">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card booking-card h-100">
+                    <span class="badge bg-danger status-badge">Cancelled</span>
+                    <img src="https://source.unsplash.com/random/600x400?workshop" class="card-img-top event-image" alt="Workshop">
+                    <div class="card-body">
+                        <h5 class="card-title">Marketing Workshop</h5>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-calendar-alt me-2"></i>June 10, 2023 • 2:00 PM
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>Business Center, Chicago
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-secondary">Early Bird</span>
+                            </div>
+                            <h5 class="mb-0 text-primary">$49.99</h5>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-secondary btn-action">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </button>
+                            <button class="btn btn-outline-danger btn-action">
+                                <i class="fas fa-trash-alt me-2"></i>Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking 4 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card booking-card h-100">
+                    <span class="badge bg-success status-badge">Confirmed</span>
+                    <img src="https://source.unsplash.com/random/600x400?theater" class="card-img-top event-image" alt="Theater">
+                    <div class="card-body">
+                        <h5 class="card-title">Broadway Show</h5>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-calendar-alt me-2"></i>September 2, 2023 • 8:00 PM
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>Majestic Theater, New York
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-primary">Premium</span>
+                            </div>
+                            <h5 class="mb-0 text-primary">$199.99</h5>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-action">
+                                <i class="fas fa-ticket-alt me-2"></i>View Ticket
+                            </button>
+                            <button class="btn btn-outline-secondary btn-action">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking 5 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card booking-card h-100">
+                    <span class="badge bg-success status-badge">Confirmed</span>
+                    <img src="https://source.unsplash.com/random/600x400?sports" class="card-img-top event-image" alt="Sports">
+                    <div class="card-body">
+                        <h5 class="card-title">Basketball Championship</h5>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-calendar-alt me-2"></i>July 30, 2023 • 6:30 PM
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>Madison Square Garden, NY
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-info text-dark">General</span>
+                            </div>
+                            <h5 class="mb-0 text-primary">$89.99</h5>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-action">
+                                <i class="fas fa-ticket-alt me-2"></i>View Ticket
+                            </button>
+                            <button class="btn btn-outline-secondary btn-action">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking 6 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card booking-card h-100">
+                    <span class="badge bg-secondary status-badge">Completed</span>
+                    <img src="https://source.unsplash.com/random/600x400?exhibition" class="card-img-top event-image" alt="Exhibition">
+                    <div class="card-body">
+                        <h5 class="card-title">Art Exhibition</h5>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-calendar-alt me-2"></i>May 20, 2023 • 10:00 AM
+                        </p>
+                        <p class="text-muted mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>Modern Art Museum, Chicago
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="badge bg-success">Member</span>
+                            </div>
+                            <h5 class="mb-0 text-primary">$39.99</h5>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary btn-action">
+                                <i class="fas fa-receipt me-2"></i>View Receipt
+                            </button>
+                            <button class="btn btn-outline-secondary btn-action">
+                                <i class="fas fa-info-circle me-2"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
